@@ -11,13 +11,14 @@ Possible use cases:
 
 
 
-## installation 
+# Installation 
 `pip install --upgrade git+https://github.com/chroneus/DataloaderCache.git`
 
-## usage
 
-# minimal example :
-MNIST 4V100 total training before:  2min17sec
-after replacing dataloader(dataset) with CachedDataset(dataset,preload=True)  42sec
+# Minimal example benchmark
+
+MNIST 4V100 total training before:  **2 min 17 sec**
+
+after replacing dataloader(dataset) with CachedDataset(dataset,preload=True)  **42 sec**
 
 
