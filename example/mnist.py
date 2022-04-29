@@ -13,7 +13,7 @@ import tqdm
 
 
 #######
-from dataloadercache.dataset import CachedDataset
+from dataloadercache.cache import CachedDataset
 #######
 
 class Net(nn.Module):
@@ -108,11 +108,10 @@ def main():
 
     device = torch.device("cuda" if use_cuda else "cpu")
 
-    train_kwargs = {'batch_size': args.batch_size}
-    test_kwargs = {'batch_size': args.test_batch_size}
+    train_kwargs = {'batch_size': args.batch_size, 'num_workers': 0}
+    test_kwargs = {'batch_size': args.test_batch_size, 'num_workers': 0,}
     if use_cuda:
-        cuda_kwargs = {'num_workers': 1,
-                       'pin_memory': True,
+        cuda_kwargs = {'pin_memory': True,
                        'shuffle': True}
         train_kwargs.update(cuda_kwargs)
         test_kwargs.update(cuda_kwargs)
